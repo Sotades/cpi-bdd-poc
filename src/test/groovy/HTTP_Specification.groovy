@@ -11,19 +11,22 @@ class HTTP_Specification extends Specification {
 
         String userpass = username + ":" + password;
 
+        String basicAuth = "Basic " + new String(Base64.getEncoder().encode(userpass.getBytes()));
+
         URL url = new URL('https://cpit100.it-cpi005-rt.cfapps.eu20.hana.ondemand.com/http/http_test')
         URLConnection uc = url.openConnection();
-
-        String basicAuth = "Basic " + new String(Base64.getEncoder().encode(userpass.getBytes()));
+        uc.requestMethod = 'GET'
 
         uc.setRequestProperty ("Authorization", basicAuth);
 
-        InputStream inputStream = uc.getInputStream()
-
-        String fred = 'Fred'
+        BufferedReader input = new BufferedReader(new InputStreamReader((uc.getInputStream())))
 
         expect:
-        fred == 'Fred'
+        String inputLine;
+        while ((inputLine = input.readLine()) != null)
+            System.out.println(inputLine);
+        input.close();
+
 
 
     }

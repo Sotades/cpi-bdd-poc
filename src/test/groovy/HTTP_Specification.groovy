@@ -5,7 +5,7 @@ class HTTP_Specification extends Specification {
 
     def "Make an HTTP GET with Authorisation"() {
 
-        given:
+        given: "Make an HTTP GET call to CPI"
         String username = 'sb-18fab321-4609-47c4-9718-ae9b2bce3726!b3328|it-rt-cpit100!b259'
         String password = 'c9316225-46fb-4692-bf94-6f8f4c5a2494$83F8QIJp3JT5-sp-L_J-banOvlHugLdrcnBXNw5mRGI='
 
@@ -19,15 +19,19 @@ class HTTP_Specification extends Specification {
 
         uc.setRequestProperty ("Authorization", basicAuth);
 
+
+
+        when: "Making a String from the response"
         BufferedReader input = new BufferedReader(new InputStreamReader((uc.getInputStream())))
+        StringBuilder response = new StringBuilder();
+        String inputLine
 
-        expect:
-        String inputLine;
         while ((inputLine = input.readLine()) != null)
-            System.out.println(inputLine);
-        input.close();
+            response.append(inputLine);
+        input.close()
 
-
+        then: "expect response not to be null"
+        response != null
 
     }
 }

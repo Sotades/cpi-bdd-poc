@@ -5,6 +5,7 @@ import org.apache.commons.io.IOUtils
 
 class HTTP_Specification extends Specification {
 
+    @Ignore
     def "Make an HTTP GET with Authorisation"() {
 
         given: "Make an HTTP GET call to CPI"
@@ -47,13 +48,13 @@ class HTTP_Specification extends Specification {
 
         String basicAuth = "Basic " + new String(Base64.getEncoder().encode(userpass.getBytes()));
 
-        URL url = new URL('https://cpit100.it-cpi005-rt.cfapps.eu20.hana.ondemand.com/http/http_test')
+        URL url = new URL('https://cpit100.it-cpi005-rt.cfapps.eu20.hana.ondemand.com/http/http_test_test')
         URLConnection uc = url.openConnection();
-        uc.requestMethod = 'GET'
+        uc.requestMethod = 'POST'
 
         uc.setRequestProperty ("Authorization", basicAuth);
 
-        when: "Making a Stream from the response"
+        when: "Making a Stream from the response using IOUtils"
         String response;
 
         InputStream inputStream = uc.getInputStream()

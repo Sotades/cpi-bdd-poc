@@ -35,8 +35,8 @@ class File_Specification extends Specification {
 
         where:
         inFile                  | outFile
-        "INVOIC_CU Test1.xml"   | "INVOIC_CU Test2.xml"
-        "INVOIC_CU Test2.xml"   | "INVOIC_CU Test1.xml"
+        "INVOIC_CU Test1.xml"   | "INVOIC_CU Test1.xml"
+        "INVOIC_CU Test2.xml"   | "INVOIC_CU Test2.xml"
 
 
     }

@@ -11,6 +11,7 @@ repositories {
 }
 
 dependencies {
+    testImplementation 'org.codehaus.groovy:groovy-xml:3.0.8'
     testImplementation 'org.codehaus.groovy:groovy-all:3.0.5'
     testImplementation 'org.spockframework:spock-core:2.1-M2-groovy-3.0'
 

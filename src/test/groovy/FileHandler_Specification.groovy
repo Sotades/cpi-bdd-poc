@@ -16,9 +16,9 @@ class FileHandler_Specification extends Specification {
         contents != null
 
         where: "test files are"
-        pathAndFileName             || _
-        'tests/INVOIC_CU Test1.xml' || _
-        'tests/INVOIC_CU Test2.xml' || _
+        pathAndFileName   || _
+        'tests/Test1.xml' || _
+        'tests/Test2.xml' || _
 
     }
 }

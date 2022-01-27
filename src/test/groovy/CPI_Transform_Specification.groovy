@@ -3,10 +3,10 @@ import spock.lang.Specification
 import spock.lang.Unroll
 
 
-class HTTPConnectionHandler_Specification extends Specification {
+class CPI_Transform_Specification extends Specification {
 
     @Unroll
-    def "Successful call into backend"() {
+    def "Testing CPI Transform"() {
 
         given: "I set up the FileHandler and HTTPConnectionHandler"
         FileHandler fileHandler = new FileHandler(pathAndFileName)
@@ -26,11 +26,13 @@ class HTTPConnectionHandler_Specification extends Specification {
         responseXml.IDOC.E1EDK01.CURCY == curcy
         responseXml.IDOC.E1EDK01.HWAER == hwaer
         responseXml.IDOC.E1EDK01.NTGEW == ntgew
+        responseXml.IDOC.E1EDK01.GEWEI == gewei
 
         where: "test files and expected results are"
-        pathAndFileName             || curcy | hwaer | ntgew
-        'tests/INVOIC_CU Test1.xml' || 'SEK' | 'SEK' | 153.120
-        'tests/INVOIC_CU Test2.xml' || 'SEK' | 'SEK' | 153.120
+        pathAndFileName             || curcy | hwaer | ntgew    | gewei
+        'tests/INVOIC_CU Test1.xml' || 'SEK' | 'SEK' | 153.120  | 'KGM'
+        'tests/INVOIC_CU Test2.xml' || 'GBP' | 'GBP' | 221.937  | 'LTR'
+        'tests/INVOIC_CU Test3.xml' || 'USD' | 'USD' | 451.216  | 'EA'
 
     }
 }

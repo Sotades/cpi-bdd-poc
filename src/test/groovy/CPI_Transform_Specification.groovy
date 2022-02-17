@@ -22,14 +22,19 @@ class CPI_Transform_Specification extends Specification {
         def response = ch.getResponse()
         def responseXml = new XmlSlurper().parseText(response)
 
-        then: "I expect the following fields to match the expected results"
-        responseXml.ZALMA_SALESORDERCREATEFROMD201.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDHD1.DOC_TYPE == doc_type
-
+        then: "I expect the following header fields to match the expected results"
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDHD1.DOC_TYPE == doc_type
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDHD1.SALES_ORG == sales_org
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDHD1.DISTR_CHAN == distr_chan
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDHD1.DIVISION == division
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDHD1.REQ_DATE_H == req_date_h
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDHD1.REF_1 == ref_1
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDHD1.PMNTTRMS == pmttrms
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDHD1.PURCH_NO_S == purch_no_s
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDHD1.BILL_DATE == bill_date
 
         where: "test files and expected results are"
-        pathAndFileName               || doc_type
-        'tests/SalesOrder_urakka.xml' || 'ZED'
-
-
+        pathAndFileName               || doc_type |sales_org  |distr_chan  |division  |req_date_h |ref_1  |pmttrms|purch_no_s|bill_date
+        'tests/SalesOrder_urakka.xml' || 'ZED'    | ''        | ''         | ''       | '20220224'|'18969'|''     |'71233'   |'20220224'
     }
 }

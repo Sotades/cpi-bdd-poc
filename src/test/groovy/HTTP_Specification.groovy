@@ -5,7 +5,7 @@ import org.apache.commons.io.IOUtils
 
 class HTTP_Specification extends Specification {
 
-    @Ignore
+    //@Ignore
     def "Make an HTTP GET with Authorisation"() {
 
         given: 'Make an HTTP GET call to CPI'

@@ -24,7 +24,7 @@ class File_Specification extends Specification {
 
         when: "I read the input and output files"
         inputBody = new File("tests/$inFile")
-        outputBody = new File("tests/output/$outFile")
+        outputBody = new File("tests/$outFile")
         inString = inputBody.text
         outString = outputBody.text
 

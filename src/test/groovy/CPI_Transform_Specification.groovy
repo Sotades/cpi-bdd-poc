@@ -33,8 +33,29 @@ class CPI_Transform_Specification extends Specification {
         responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDHD1.PURCH_NO_S == purch_no_s
         responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDHD1.BILL_DATE == bill_date
 
+        and: "I expect the first item to match the following expected results"
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[0].ITM_NUMBER == itm_number_1
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[0].ITEM_CATEG == itm_categ_1
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[0].SHORT_TEXT == short_text_1
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[0].SD_TAXCODE == sd_taxcode_1
+
+        and: "I expect the second item to match the following expected results"
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[1].ITM_NUMBER == itm_number_2
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[1].ITEM_CATEG == itm_categ_2
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[1].SHORT_TEXT == short_text_2
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[1].SD_TAXCODE == sd_taxcode_2
+
         where: "test files and expected results are"
         pathAndFileName               || doc_type |sales_org  |distr_chan  |division  |req_date_h |ref_1  |pmttrms|purch_no_s|bill_date
         'tests/SalesOrder_urakka.xml' || 'ZED'    | ''        | ''         | ''       | '20220224'|'18969'|''     |'71233'   |'20220224'
+        __
+        itm_number_1|itm_categ_1|short_text_1                                                                                 |sd_taxcode_1
+        '000010'    |'ZTDC'     |'ID: 71233, Jarno Karjalainen, 00620, Helsinki, Uusimaa, Finland: Peltikaton pesu ja maalaus'|''
+        __
+        itm_number_2|itm_categ_2|short_text_2                |sd_taxcode_2
+        '000020'    |'ZTDC'     |'Ilmoittamattajättämismaksu'|''
+
+
+
     }
 }

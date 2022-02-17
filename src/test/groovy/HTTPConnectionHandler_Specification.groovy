@@ -30,7 +30,7 @@ class HTTPConnectionHandler_Specification extends Specification {
         where: "test files and expected results are"
         pathAndFileName             || curcy | hwaer | ntgew
         'tests/INVOIC_CU Test1.xml' || 'SEK' | 'SEK' | 153.120
-        'tests/INVOIC_CU Test2.xml' || 'SEK' | 'SEK' | 153.120
+        'tests/INVOIC_CU Test2.xml' || 'GBP' | 'GBP' | 221.937
 
     }
 }

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><ZALMA_SALESORDERCREATEFROMD201>
+   <IDOC BEGIN="1">
+      <EDI_DC40 SEGMENT="1">
+         <TABNAM>EDI_DC40</TABNAM>
+         <DIRECT>2</DIRECT>
+         <IDOCTYP>ZALMA_SALESORDERCREATEFROMD201</IDOCTYP>
+         <MESTYP>ZALMA_SALESORDERCREATEFROMD2</MESTYP>
+         <REFMES>439115</REFMES>
+         <SNDPOR>AEP_300</SNDPOR>
+         <SNDPRT>KU</SNDPRT>
+         <SNDPRN>ZI_TUKKUAU</SNDPRN>
+         <RCVPOR>SAPAEP</RCVPOR>
+         <RCVPRT>LS</RCVPRT>
+         <RCVPRN>AEPCLNT300</RCVPRN>
+      </EDI_DC40>
+      <Z1ZALMA_SALESORDERCREATEFRO SEGMENT="1">
+         <E1BPSDHD1 SEGMENT="1">
+            <DOC_TYPE>ZED4</DOC_TYPE>
+            <SALES_ORG/>
+            <DISTR_CHAN/>
+            <DIVISION/>
+            <REF_1>439115</REF_1>
+            <NAME>1024001900890016126</NAME>
+            <PMNTTRMS/>
+            <BILL_DATE>20220216</BILL_DATE>
+         </E1BPSDHD1>
+         <E1BPSDITM SEGMENT="1">
+            <ITM_NUMBER>000010</ITM_NUMBER>
+            <ITEM_CATEG>ZTDC</ITEM_CATEG>
+            <SD_TAXCODE/>
+            <E1BPSDITM1 SEGMENT="1"/>
+         </E1BPSDITM>
+         <E1BPPARNR SEGMENT="1">
+            <PARTN_ROLE>ZI</PARTN_ROLE>
+            <PARTN_NUMB>ZI_TUKKUAU</PARTN_NUMB>
+            <NAME/>
+            <NAME_2/>
+            <NAME_3/>
+            <NAME_4/>
+            <STREET/>
+            <COUNTRY/>
+            <POSTL_CODE/>
+            <CITY/>
+         </E1BPPARNR>
+         <E1BPPARNR SEGMENT="1">
+            <PARTN_ROLE>AG</PARTN_ROLE>
+            <PARTN_NUMB>ON00000000</PARTN_NUMB>
+            <NAME/>
+            <NAME_2/>
+            <NAME_3/>
+            <NAME_4/>
+            <STREET/>
+            <COUNTRY/>
+            <POSTL_CODE/>
+            <CITY/>
+         </E1BPPARNR>
+         <E1BPSCHDL SEGMENT="1">
+            <ITM_NUMBER>000010</ITM_NUMBER>
+            <REQ_QTY>1.00</REQ_QTY>
+         </E1BPSCHDL>
+         <E1BPCOND SEGMENT="1">
+            <ITM_NUMBER>000010</ITM_NUMBER>
+            <COND_TYPE>ZPR0</COND_TYPE>
+            <COND_VALUE>80.0000</COND_VALUE>
+         </E1BPCOND>
+         <E1BPPAREX SEGMENT="1">
+            <STRUCTURE>ORDER_ZDATES</STRUCTURE>
+            <VALUEPART1>000010</VALUEPART1>
+            <VALUEPART2>20220228</VALUEPART2>
+            <VALUEPART3>20230228</VALUEPART3>
+            <VALUEPART4/>
+         </E1BPPAREX>
+         <Z1ZALMABAPISDITM SEGMENT="1">
+            <ITM_NUMBER>000010</ITM_NUMBER>
+            <MATERIAL>30</MATERIAL>
+         </Z1ZALMABAPISDITM>
+      </Z1ZALMA_SALESORDERCREATEFRO>
+   </IDOC>
+</ZALMA_SALESORDERCREATEFROMD201>

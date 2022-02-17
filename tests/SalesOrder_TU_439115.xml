@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<alma:GMT_Alma_Global_SalesOrder xmlns:alma="urn:alma.fi:Global">
+<SalesOrder>
+    <Header>
+        <SenderSystem>ZI_TUKKUAU</SenderSystem>
+        <SalesOrderType>ZED4</SalesOrderType>
+        <DocumentDate>16022022</DocumentDate>
+        <InvoiceNumber>439115</InvoiceNumber>
+        <CustomerRefNumber>1024001900890016126</CustomerRefNumber>
+            <Partner>
+                <Role>ZI</Role>
+                <Number>ZI_TUKKUAU</Number>
+			</Partner>
+            <Partner>
+                <Role>AG</Role>
+                <Number>ON00000000</Number>
+			</Partner>
+	</Header>
+        <Item>
+            <ItemNumber>000010</ItemNumber>
+            <ItemCategory>ZTDC</ItemCategory>
+            <RowType>0</RowType>
+            <MaterialNumber type="External">30</MaterialNumber>
+            <OrderQuantity>1.00</OrderQuantity>
+            <PricingCondition>
+                <ConditionType>ZPR0</ConditionType>
+                <Value>80.00</Value>
+			</PricingCondition>
+            <ContractBeginDate>28022022</ContractBeginDate>
+            <ContractEndDate>28022023</ContractEndDate>
+		</Item>
+</SalesOrder>
+</alma:GMT_Alma_Global_SalesOrder>

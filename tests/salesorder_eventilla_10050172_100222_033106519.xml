@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<a:GMT_Alma_Global_SalesOrder xmlns:a="urn:alma.fi:Global" xmlns:b="urn:alma.fi:saperp:SD2:ReceiveSalesOrder">  
+  <SalesOrder> 
+    <Header> 
+      <SenderSystem>ZI_EVENT</SenderSystem>  
+      <SalesOrderType>ZED</SalesOrderType>  
+      <PaymentTerms>0210</PaymentTerms>  
+      <DocumentDate>09022022</DocumentDate>  
+      <InvoiceNumber>10050172</InvoiceNumber>  
+      <YourReference>Kimmo Kotamäki</YourReference>  
+      <OurReference/>  
+      <Partner> 
+        <Role>AG</Role>  
+        <Number>10016734</Number> 
+      </Partner>  
+      <Partner> 
+        <Role>ZI</Role>  
+        <Number>ZI_EVENT</Number> 
+      </Partner> 
+    </Header>  
+    <Item> 
+      <ItemNumber>00010</ItemNumber>  
+      <MaterialNumber type="External">203917</MaterialNumber>  
+      <Description>EE97RL: Sopimusriitapäivä</Description>  
+      <ItemCategory>ZTDC</ItemCategory>  
+      <RowType>0</RowType>  
+      <OrderQuantity>1</OrderQuantity>  
+      <Price sign=""/>  
+      <PricingCondition> 
+        <ConditionType>ZPR0</ConditionType>  
+        <Value>633.00</Value> 
+      </PricingCondition>  
+      <Prc_Group1/>  
+      <Text> 
+        <TextID>Z010</TextID>  
+        <ItemNumber>00010</ItemNumber>  
+        <TextRow>EE97RL: Sopimusriitapäivä</TextRow> 
+      </Text>  
+      <ProjectNumber>EE97RL</ProjectNumber>  
+      <ContractBeginDate>11022022</ContractBeginDate>  
+      <ContractEndDate>11022022</ContractEndDate>  
+      <EndCustomer>EV10016734</EndCustomer> 
+    </Item>  
+    <Item> 
+      <ItemNumber>00020</ItemNumber>  
+      <ItemCategory>ZTXT</ItemCategory>  
+      <Description>11.02.2022, Etäosallistuminen</Description>  
+      <Text> 
+        <TextID>Z010</TextID>  
+        <ItemNumber>00020</ItemNumber>  
+        <TextRow>11.02.2022, Etäosallistuminen</TextRow> 
+      </Text> 
+    </Item>  
+    <Item> 
+      <ItemNumber>00030</ItemNumber>  
+      <ItemCategory>ZTXT</ItemCategory>  
+      <Description>Osallistuja: Kimmo Kotamäki</Description>  
+      <Text> 
+        <TextID>Z010</TextID>  
+        <ItemNumber>00030</ItemNumber>  
+        <TextRow>Osallistuja: Kimmo Kotamäki</TextRow> 
+      </Text> 
+    </Item> 
+  </SalesOrder> 
+</a:GMT_Alma_Global_SalesOrder>

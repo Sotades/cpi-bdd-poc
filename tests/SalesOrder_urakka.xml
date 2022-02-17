@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><a:GMT_Alma_Global_SalesOrder xmlns:b="urn:alma.fi:saperp:SD2:ReceiveSalesOrder" xmlns:a="urn:alma.fi:Global">
+    <SalesOrder>
+        <Header>
+            <SenderSystem>ZI_URAKKAM</SenderSystem>
+            <SalesOrderType>ZED</SalesOrderType>
+            <DocumentDate>24022022</DocumentDate>
+            <InvoiceNumber>18969</InvoiceNumber>
+            <OurReference>71233</OurReference>
+            <RequestedDeliveryDate>24022022</RequestedDeliveryDate>
+            <Partner>
+                <Role>AG</Role>
+                <Number>12108</Number>
+            </Partner>
+            <Text>
+                <TextID>Z001</TextID>
+                <TextRow>Onnistunutta remonttia! Urakkamaailma.fi-palvelumaksu on 5,8% urakan arvonlisäverottomasta hinnasta ilman materiaalikustannuksia.</TextRow>
+            </Text>
+            <Partner>
+                <Role>ZI</Role>
+                <Number>ZI_URAKKAM</Number>
+            </Partner>
+        </Header>
+        <Item>
+            <ItemNumber>000010</ItemNumber>
+            <MaterialNumber type="External">1000</MaterialNumber>
+            <Description>ID: 71233, Jarno Karjalainen, 00620, Helsinki, Uusimaa, Finland: Peltikaton pesu ja maalaus</Description>
+            <RowType>0</RowType>
+            <ItemCategory>ZTDC</ItemCategory>
+            <OrderQuantity>1</OrderQuantity>
+            <Price sign=""/>
+            <PricingCondition>
+                <ConditionType>ZPR0</ConditionType>
+                <Value>163.71</Value>
+            </PricingCondition>
+            <EndCustomer>UM00012108</EndCustomer>
+            <Text>
+                <TextID>Z010</TextID>
+                <ItemNumber>000010</ItemNumber>
+                <TextRow>ID: 71233, Jarno Karjalainen, 00620, Helsinki, Uusimaa, Finland: Peltikaton pesu ja maalaus</TextRow>
+            </Text>
+        </Item>
+                <Item>
+            <ItemNumber>000020</ItemNumber>
+            <MaterialNumber type="External">1002</MaterialNumber>
+            <Description>Ilmoittamattajättämismaksu</Description>
+            <RowType>0</RowType>
+            <ItemCategory>ZTDC</ItemCategory>
+            <OrderQuantity>1</OrderQuantity>
+            <Price sign=""/>
+            <PricingCondition>
+                <ConditionType>ZPR0</ConditionType>
+                <Value>22.00</Value>
+            </PricingCondition>
+            <EndCustomer>UM00012108</EndCustomer>
+            <Text>
+                <TextID>Z010</TextID>
+                <ItemNumber>000020</ItemNumber>
+                <TextRow>Ilmoittamattajättämismaksu</TextRow>
+            </Text>
+        </Item>
+            </SalesOrder>
+</a:GMT_Alma_Global_SalesOrder>

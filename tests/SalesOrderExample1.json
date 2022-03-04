@@ -1,0 +1,53 @@
+{
+    "SalesOrder": {
+        "Header":{
+            "SalesOrderType": "ZED",
+            "InvoiceNumber": "18969",
+            "PaymentTerms": "1",
+            "YourReference": "71232",
+            "OurReference": "71233",
+            "Currency": "EUR",
+            "ContractNumber": {
+                "TextID": "Z002",
+                "TextRow": "Onnistunutta remonttia! Urakkamaailma.fi-palvelumaksu on 5,8% urakan arvonlisäverottomasta hinnasta ilman materiaalikustannuksia."
+            },
+            "PartnerCustomer": {
+                "Role": "AG",
+                "Number": "10016734"
+            },
+            "PartnerInterface": {
+                "Role": "ZI",
+                "Number": "ZI_EVENT"    
+            },
+            "PartnerSalesPerson": {
+                "Role": "VE",
+                "Number": "VIRVEK"    
+            }
+            
+            
+        },
+        "Item": {
+            "ItemNumber": "000010",
+            "Type": "External",
+            "MaterialNumber": "1000",
+            "RowType": "0",
+            "OrderQuantity": "1",
+            "ItemCategory": "ZTDC",
+            "Prc_Group1": "TBD",
+            "Prc_Group3": "TBD",
+            "ProjectNumber": "E9Q3X7",
+            "PricingCondition": {
+                "ConditionType": "ZPR0",
+                "Value": 633.0000
+            },
+            "Text": {
+                "TextID": "Z002",
+                "TextRow": "Onnistunutta remonttia! Urakkamaailma.fi-palvelumaksu on 5,8% urakan arvonlisäverottomasta hinnasta ilman materiaalikustannuksia."
+            }
+            
+            
+        }
+        
+            
+    }
+}

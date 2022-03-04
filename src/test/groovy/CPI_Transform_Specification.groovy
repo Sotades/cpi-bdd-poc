@@ -36,13 +36,13 @@ class CPI_Transform_Specification extends Specification {
         and: "I expect the first item to match the following expected results"
         responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[0].ITM_NUMBER == itm_number_1
         responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[0].ITEM_CATEG == itm_categ_1
-        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[0].SHORT_TEXT == short_text_1
+        //responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[0].SHORT_TEXT == short_text_1
         responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[0].SD_TAXCODE == sd_taxcode_1
 
         and: "I expect the second item to match the following expected results"
         responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[1].ITM_NUMBER == itm_number_2
         responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[1].ITEM_CATEG == itm_categ_2
-        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[1].SHORT_TEXT == short_text_2
+        //responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[1].SHORT_TEXT == short_text_2
         responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[1].SD_TAXCODE == sd_taxcode_2
 
         where: "test files and expected results are"

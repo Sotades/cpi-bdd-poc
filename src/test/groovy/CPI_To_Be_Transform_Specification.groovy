@@ -31,30 +31,34 @@ class CPI_To_Be_Transform_Specification extends Specification {
         responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDHD1.REF_1 == ref_1
         responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDHD1.NAME == name
         responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDHD1.PMNTTRMS == pmttrms
-        //responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDHD1.PURCH_NO_S == purch_no_s
-        //responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDHD1.BILL_DATE == bill_date
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDHD1.PURCH_NO_C == purch_no_c
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDHD1.PURCH_NO_S == purch_no_s
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDHD1.CURR_ISO == curr_iso
+
+        and: "I expect the header texts to match the following expecter results"
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDTEXT.find{ it.TEXT_ID == 'Z002' && it.ITM_NUMBER == '000000'}.TEXT_LINE == z002_text_row
 
         and: "I expect the first item to match the following expected results"
-        //responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[0].ITM_NUMBER == itm_number_1
-        //responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[0].ITEM_CATEG == itm_categ_1
-        //responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[0].SHORT_TEXT == short_text_1
-        //responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[0].SD_TAXCODE == sd_taxcode_1
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[0].ITM_NUMBER == itm_number_1
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[0].MATERIAL == material_1
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[0].TARGET_QU== target_quantity_1
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[0].ITEM_CATEG == itm_categ_1
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[0].PRC_GROUP1 == prc_grp_1
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[0].PRC_GROUP3 == prc_grp_3
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[0].E1BPSDITM1.ORDERID == order_id_1
 
-        and: "I expect the second item to match the following expected results"
-        //responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[1].ITM_NUMBER == itm_number_2
-        //responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[1].ITEM_CATEG == itm_categ_2
-        //responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[1].SHORT_TEXT == short_text_2
-        //responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSDITM[1].SD_TAXCODE == sd_taxcode_2
+        and: "I expect the following partner information"
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPPARNR.find{ it.PARTN_ROLE == 'AG'}.PARTN_NUMB == partner_customer_number
 
         where: "test files and expected results are"
-        pathAndFileName                 || doc_type |sales_org  |distr_chan  |division  |req_date_h |ref_1  |name|pmttrms|purch_no_s|bill_date
-        'tests/SalesOrderExample1.json' || 'ZED'    | ''        | ''         | ''       | '20220224'|'18969'|''  |'1'     |'71233'   |'20220224'
+        pathAndFileName                 || doc_type |sales_org  |distr_chan  |division  |req_date_h |ref_1  |name|pmttrms|purch_no_s|bill_date |purch_no_c|curr_iso|z002_text_row
+        'tests/SalesOrderExample1.json' || 'ZED'    | ''        | ''         | ''       | '20220224'|'18969'|''  |'1'     |'71233'  |'20220224'|'71232'   |'EUR'   |'Onnistunutta remonttia!'
         __
-        itm_number_1|itm_categ_1|short_text_1                                                                                 |sd_taxcode_1
-        '000010'    |'ZTDC'     |'ID: 71233, Jarno Karjalainen, 00620, Helsinki, Uusimaa, Finland: Peltikaton pesu ja maalaus'|''
-        __
-        itm_number_2|itm_categ_2|short_text_2                |sd_taxcode_2
-        '000020'    |'ZTDC'     |'Ilmoittamattajättämismaksu'|''
+        itm_number_1|material_1|target_quantity_1|itm_categ_1|prc_grp_1|prc_grp_3|order_id_1|partner_customer_number
+        '000010'    |'1000'    |'1'              | 'ZTDC'    |'TBD'    |'TBD'    |'E9Q3X7'  |'10016734'
+
+
+
 
     }
 

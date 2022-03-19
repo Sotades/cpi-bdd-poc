@@ -9,7 +9,7 @@
             "Currency": "EUR",
             "ContractNumber": {
                 "TextID": "Z002",
-                "TextRow": "Onnistunutta remonttia! Urakkamaailma.fi-palvelumaksu on 5,8% urakan arvonlisäverottomasta hinnasta ilman materiaalikustannuksia."
+                "TextRow": "Onnistunutta remonttia!"
             },
             "PartnerCustomer": {
                 "Role": "AG",
@@ -28,7 +28,7 @@
         },
         "Item": {
             "ItemNumber": "000010",
-            "Type": "External",
+            "Type": "Internal",
             "MaterialNumber": "1000",
             "RowType": "0",
             "OrderQuantity": "1",
@@ -42,7 +42,7 @@
             },
             "Text": {
                 "TextID": "Z002",
-                "TextRow": "Onnistunutta remonttia! Urakkamaailma.fi-palvelumaksu on 5,8% urakan arvonlisäverottomasta hinnasta ilman materiaalikustannuksia."
+                "TextRow": "Onnistunutta remonttia!"
             }
             
             

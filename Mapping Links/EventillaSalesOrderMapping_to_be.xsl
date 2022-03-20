@@ -129,6 +129,7 @@
 						</E1BPCOND>
 					</xsl:for-each>
 
+					<!--Header Texts-->
 					<E1BPSDTEXT SEGMENT="1">
 						<ITM_NUMBER>000000</ITM_NUMBER>
 						<TEXT_ID>
@@ -139,6 +140,17 @@
 							<xsl:value-of select="SalesOrder/Header/ContractNumber/TextRow"/>
 						</TEXT_LINE>
 					</E1BPSDTEXT>
+
+					<!--Item Texts-->
+					<xsl:for-each select="SalesOrder/Item/Text">
+						<E1BPSDTEXT SEGMENT="1">
+							<ITM_NUMBER><xsl:value-of select="../ItemNumber"/></ITM_NUMBER>
+							<TEXT_ID><xsl:value-of select="TextID"/></TEXT_ID>
+							<FORMAT_COL>*</FORMAT_COL>
+							<TEXT_LINE><xsl:value-of select="TextRow"/></TEXT_LINE>
+						</E1BPSDTEXT>
+					</xsl:for-each>
+
 				</Z1ZALMA_SALESORDERCREATEFRO>
 			</IDOC>
 		</ZALMA_SALESORDERCREATEFROMD201>

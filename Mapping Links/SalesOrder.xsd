@@ -2,7 +2,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
 	<xs:annotation>
 		<xs:documentation>
-			<Version>0.11</Version>
+			<Version>0.12</Version>
 			<Authors>
 				<Author>Anthony Bateman (anthony.bateman@sofigate.com)</Author>
 				<Author>Joni Huoponen (joni.huoponen@almamedia.fi)</Author>
@@ -11,6 +11,7 @@
 			<Changes>
 				<Change>3/2/2020 Added restrictions to several elements</Change>
 				<Change>2/3/2020 Passed validation check</Change>
+				<Change>20/3/2020 New fields added to PartnerCustomer: names, street and country details</Change>
 			</Changes>
 		</xs:documentation>
 	</xs:annotation>

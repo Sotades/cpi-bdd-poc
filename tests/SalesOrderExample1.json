@@ -13,7 +13,16 @@
             },
             "PartnerCustomer": {
                 "Role": "AG",
-                "Number": "10016734"
+                "Number": "10016734",
+                "Name": "Fred Astaire",
+                "Name_2": "Fred Kruger",
+                "Name_3": "Fred Flintstone",
+                "Name_4": "Fred the Shred",
+                "Street": "10 Downing Street",
+                "Country": "United Kingdom",
+                "Postal_Code": "SW1A 2AA",
+                "City": "London"
+
             },
             "PartnerInterface": {
                 "Role": "ZI",

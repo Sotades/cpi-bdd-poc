@@ -49,13 +49,22 @@ class CPI_To_Be_Transform_Specification extends Specification {
 
         and: "I expect the following partner information"
         responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPPARNR.find{ it.PARTN_ROLE == 'AG'}.PARTN_NUMB == partner_customer_number
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPPARNR.find{ it.PARTN_ROLE == 'AG'}.NAME == partner_customer_name
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPPARNR.find{ it.PARTN_ROLE == 'AG'}.NAME_2 == partner_customer_name_2
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPPARNR.find{ it.PARTN_ROLE == 'AG'}.NAME_3 == partner_customer_name_3
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPPARNR.find{ it.PARTN_ROLE == 'AG'}.NAME_4 == partner_customer_name_4
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPPARNR.find{ it.PARTN_ROLE == 'AG'}.STREET == partner_customer_street
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPPARNR.find{ it.PARTN_ROLE == 'AG'}.COUNTRY == partner_customer_country
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPPARNR.find{ it.PARTN_ROLE == 'AG'}.POSTL_CODE == partner_customer_postal_code
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPPARNR.find{ it.PARTN_ROLE == 'AG'}.CITY == partner_customer_city
 
         where: "test files and expected results are"
         pathAndFileName                 || doc_type |sales_org  |distr_chan  |division  |req_date_h |ref_1  |name|pmttrms|purch_no_s|bill_date |purch_no_c|curr_iso|z002_text_row
         'tests/SalesOrderExample1.json' || 'ZED'    | ''        | ''         | ''       | '20220224'|'18969'|''  |'1'     |'71233'  |'20220224'|'71232'   |'EUR'   |'Onnistunutta remonttia!'
-        __
-        itm_number_1|material_1|target_quantity_1|itm_categ_1|prc_grp_1|prc_grp_3|order_id_1|partner_customer_number
-        '000010'    |'1000'    |'1'              | 'ZTDC'    |'TBD'    |'TBD'    |'E9Q3X7'  |'10016734'
+        _____
+        itm_number_1|material_1|target_quantity_1|itm_categ_1|prc_grp_1|prc_grp_3|order_id_1|partner_customer_number|partner_customer_name|partner_customer_name_2|partner_customer_name_3|partner_customer_name_4|partner_customer_street|partner_customer_country|partner_customer_postal_code|partner_customer_city
+        '000010'    |'1000'    |'1'              | 'ZTDC'    |'TBD'    |'TBD'    |'E9Q3X7'  |'10016734'             |'Fred Astaire'       |'Fred Kruger'          |'Fred Flintstone'     |'Fred the Shred'        |'10 Downing Street'    |'United Kingdom'        |'SW1A 2AA'                  |'London'
+
 
 
 

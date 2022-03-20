@@ -112,6 +112,15 @@
 						<PARTN_NUMB><xsl:value-of select="SalesOrder/Header/PartnerSalesPerson/Number"/></PARTN_NUMB>
 					</E1BPPARNR>
 
+					<!--Schedule lines-->
+					<xsl:for-each select="SalesOrder/Item">
+					<E1BPSCHDL SEGMENT="1">
+						<ITM_NUMBER><xsl:value-of select="ItemNumber"/></ITM_NUMBER>
+						<REQ_QTY><xsl:value-of select="OrderQuantity"/></REQ_QTY>
+					</E1BPSCHDL>
+
+					</xsl:for-each>
+
 					<E1BPSDTEXT SEGMENT="1">
 						<ITM_NUMBER>000000</ITM_NUMBER>
 						<TEXT_ID>
@@ -157,19 +166,19 @@
 		</MapperInfo>
 		<MapperBlockPosition>
 			<template match="/">
-				<block path="ZALMA_SALESORDERCREATEFROMD201/IDOC/EDI_DC40/xsl:if/!=[0]" x="196" y="175"/>
-				<block path="ZALMA_SALESORDERCREATEFROMD201/IDOC/EDI_DC40/xsl:if/!=[0]/normalize-space[0]" x="150" y="169"/>
-				<block path="ZALMA_SALESORDERCREATEFROMD201/IDOC/EDI_DC40/xsl:if" x="242" y="177"/>
-				<block path="ZALMA_SALESORDERCREATEFROMD201/IDOC/EDI_DC40/xsl:if/REFMES/xsl:value-of" x="282" y="177"/>
-				<block path="ZALMA_SALESORDERCREATEFROMD201/IDOC/EDI_DC40/SNDPOR/xsl:value-of" x="482" y="177"/>
-				<block path="ZALMA_SALESORDERCREATEFROMD201/IDOC/EDI_DC40/SNDPRT/xsl:value-of" x="522" y="177"/>
-				<block path="ZALMA_SALESORDERCREATEFROMD201/IDOC/EDI_DC40/SNDPRN/xsl:value-of" x="442" y="177"/>
-				<block path="ZALMA_SALESORDERCREATEFROMD201/IDOC/EDI_DC40/RCVPOR/xsl:value-of" x="402" y="177"/>
-				<block path="ZALMA_SALESORDERCREATEFROMD201/IDOC/EDI_DC40/RCVPRT/xsl:value-of" x="362" y="177"/>
-				<block path="ZALMA_SALESORDERCREATEFROMD201/IDOC/EDI_DC40/RCVPRN/xsl:value-of" x="322" y="177"/>
-				<block path="ZALMA_SALESORDERCREATEFROMD201/IDOC/Z1ZALMA_SALESORDERCREATEFRO/xsl:for-each" x="202" y="177"/>
-				<block path="ZALMA_SALESORDERCREATEFROMD201/IDOC/Z1ZALMA_SALESORDERCREATEFRO/xsl:for-each/E1BPSDITM/xsl:if/=[0]" x="116" y="175"/>
-				<block path="ZALMA_SALESORDERCREATEFROMD201/IDOC/Z1ZALMA_SALESORDERCREATEFRO/xsl:for-each/E1BPSDITM/xsl:if" x="162" y="177"/>
+				<block path="ZALMA_SALESORDERCREATEFROMD201/IDOC/EDI_DC40/xsl:if/!=[0]" x="195" y="175"/>
+				<block path="ZALMA_SALESORDERCREATEFROMD201/IDOC/EDI_DC40/xsl:if/!=[0]/normalize-space[0]" x="149" y="169"/>
+				<block path="ZALMA_SALESORDERCREATEFROMD201/IDOC/EDI_DC40/xsl:if" x="241" y="177"/>
+				<block path="ZALMA_SALESORDERCREATEFROMD201/IDOC/EDI_DC40/xsl:if/REFMES/xsl:value-of" x="281" y="177"/>
+				<block path="ZALMA_SALESORDERCREATEFROMD201/IDOC/EDI_DC40/SNDPOR/xsl:value-of" x="481" y="177"/>
+				<block path="ZALMA_SALESORDERCREATEFROMD201/IDOC/EDI_DC40/SNDPRT/xsl:value-of" x="521" y="177"/>
+				<block path="ZALMA_SALESORDERCREATEFROMD201/IDOC/EDI_DC40/SNDPRN/xsl:value-of" x="441" y="177"/>
+				<block path="ZALMA_SALESORDERCREATEFROMD201/IDOC/EDI_DC40/RCVPOR/xsl:value-of" x="401" y="177"/>
+				<block path="ZALMA_SALESORDERCREATEFROMD201/IDOC/EDI_DC40/RCVPRT/xsl:value-of" x="361" y="177"/>
+				<block path="ZALMA_SALESORDERCREATEFROMD201/IDOC/EDI_DC40/RCVPRN/xsl:value-of" x="321" y="177"/>
+				<block path="ZALMA_SALESORDERCREATEFROMD201/IDOC/Z1ZALMA_SALESORDERCREATEFRO/xsl:for-each" x="201" y="177"/>
+				<block path="ZALMA_SALESORDERCREATEFROMD201/IDOC/Z1ZALMA_SALESORDERCREATEFRO/xsl:for-each/E1BPSDITM/xsl:if/=[0]" x="115" y="175"/>
+				<block path="ZALMA_SALESORDERCREATEFROMD201/IDOC/Z1ZALMA_SALESORDERCREATEFRO/xsl:for-each/E1BPSDITM/xsl:if" x="161" y="177"/>
 			</template>
 		</MapperBlockPosition>
 		<TemplateContext></TemplateContext>

@@ -114,11 +114,19 @@
 
 					<!--Schedule lines-->
 					<xsl:for-each select="SalesOrder/Item">
-					<E1BPSCHDL SEGMENT="1">
-						<ITM_NUMBER><xsl:value-of select="ItemNumber"/></ITM_NUMBER>
-						<REQ_QTY><xsl:value-of select="OrderQuantity"/></REQ_QTY>
-					</E1BPSCHDL>
+						<E1BPSCHDL SEGMENT="1">
+							<ITM_NUMBER><xsl:value-of select="ItemNumber"/></ITM_NUMBER>
+							<REQ_QTY><xsl:value-of select="OrderQuantity"/></REQ_QTY>
+						</E1BPSCHDL>
+					</xsl:for-each>
 
+					<!--Condition lines-->
+					<xsl:for-each select="SalesOrder/Item/PricingCondition">
+						<E1BPCOND SEGMENT="1">
+							<ITM_NUMBER><xsl:value-of select="../ItemNumber"/></ITM_NUMBER>
+							<COND_TYPE><xsl:value-of select="ConditionType"/></COND_TYPE>
+							<COND_VALUE><xsl:value-of select="Value"/></COND_VALUE>
+						</E1BPCOND>
 					</xsl:for-each>
 
 					<E1BPSDTEXT SEGMENT="1">

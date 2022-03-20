@@ -67,14 +67,17 @@ class CPI_To_Be_Transform_Specification extends Specification {
         and: "I expect Schedule lines to be like this"
         responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPSCHDL.find{ it.ITM_NUMBER == '000010'}.REQ_QTY == requested_quantity
 
+        and: "I expect Condition lines to be like this"
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPCOND.find{ it.ITM_NUMBER == '000010' && it.COND_TYPE == 'ZPR0'  }.COND_VALUE == condition_value
+
 
 
         where: "test files and expected results are"
         pathAndFileName                 || doc_type |sales_org  |distr_chan  |division  |req_date_h |ref_1  |name|pmttrms|purch_no_s|bill_date |purch_no_c|curr_iso|z002_text_row
         'tests/SalesOrderExample1.json' || 'ZED'    | ''        | ''         | ''       | '20220224'|'18969'|''  |'1'     |'71233'  |'20220224'|'71232'   |'EUR'   |'Onnistunutta remonttia!'
         _____
-        itm_number_1|material_1|target_quantity_1|itm_categ_1|prc_grp_1|prc_grp_3|order_id_1|partner_customer_number|partner_customer_name|partner_customer_name_2|partner_customer_name_3|partner_customer_name_4|partner_customer_street|partner_customer_country|partner_customer_postal_code|partner_customer_city|partner_interface_number|partner_sales_person_number|requested_quantity
-        '000010'    |'1000'    |'1'              | 'ZTDC'    |'TBD'    |'TBD'    |'E9Q3X7'  |'10016734'             |'Fred Astaire'       |'Fred Kruger'          |'Fred Flintstone'     |'Fred the Shred'        |'10 Downing Street'    |'United Kingdom'        |'SW1A 2AA'                  |'London'             |'ZI_EVENT'              |"VIRVEK"                   |'1'
+        itm_number_1|material_1|target_quantity_1|itm_categ_1|prc_grp_1|prc_grp_3|order_id_1|partner_customer_number|partner_customer_name|partner_customer_name_2|partner_customer_name_3|partner_customer_name_4|partner_customer_street|partner_customer_country|partner_customer_postal_code|partner_customer_city|partner_interface_number|partner_sales_person_number|requested_quantity|pricing_condition|condition_value
+        '000010'    |'1000'    |'1'              | 'ZTDC'    |'TBD'    |'TBD'    |'E9Q3X7'  |'10016734'             |'Fred Astaire'       |'Fred Kruger'          |'Fred Flintstone'     |'Fred the Shred'        |'10 Downing Street'    |'United Kingdom'        |'SW1A 2AA'                  |'London'             |'ZI_EVENT'              |"VIRVEK"                   |'1'               |'ZPR0'           |'633.0000'
 
 
 

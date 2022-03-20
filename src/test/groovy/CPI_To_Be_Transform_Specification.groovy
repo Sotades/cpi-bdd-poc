@@ -61,13 +61,17 @@ class CPI_To_Be_Transform_Specification extends Specification {
         and: "I expect the Parter Interface fields to be like this"
         responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPPARNR.find{ it.PARTN_ROLE == 'ZI'}.PARTN_NUMB == partner_interface_number
 
+        and: "I expect the Parter Sales Person fields to be like this"
+        responseXml.IDOC.Z1ZALMA_SALESORDERCREATEFRO.E1BPPARNR.find{ it.PARTN_ROLE == 'VE'}.PARTN_NUMB == partner_sales_person_number
+
+
 
         where: "test files and expected results are"
         pathAndFileName                 || doc_type |sales_org  |distr_chan  |division  |req_date_h |ref_1  |name|pmttrms|purch_no_s|bill_date |purch_no_c|curr_iso|z002_text_row
         'tests/SalesOrderExample1.json' || 'ZED'    | ''        | ''         | ''       | '20220224'|'18969'|''  |'1'     |'71233'  |'20220224'|'71232'   |'EUR'   |'Onnistunutta remonttia!'
         _____
-        itm_number_1|material_1|target_quantity_1|itm_categ_1|prc_grp_1|prc_grp_3|order_id_1|partner_customer_number|partner_customer_name|partner_customer_name_2|partner_customer_name_3|partner_customer_name_4|partner_customer_street|partner_customer_country|partner_customer_postal_code|partner_customer_city|partner_interface_number
-        '000010'    |'1000'    |'1'              | 'ZTDC'    |'TBD'    |'TBD'    |'E9Q3X7'  |'10016734'             |'Fred Astaire'       |'Fred Kruger'          |'Fred Flintstone'     |'Fred the Shred'        |'10 Downing Street'    |'United Kingdom'        |'SW1A 2AA'                  |'London'             |'ZI_EVENT'
+        itm_number_1|material_1|target_quantity_1|itm_categ_1|prc_grp_1|prc_grp_3|order_id_1|partner_customer_number|partner_customer_name|partner_customer_name_2|partner_customer_name_3|partner_customer_name_4|partner_customer_street|partner_customer_country|partner_customer_postal_code|partner_customer_city|partner_interface_number|partner_sales_person_number
+        '000010'    |'1000'    |'1'              | 'ZTDC'    |'TBD'    |'TBD'    |'E9Q3X7'  |'10016734'             |'Fred Astaire'       |'Fred Kruger'          |'Fred Flintstone'     |'Fred the Shred'        |'10 Downing Street'    |'United Kingdom'        |'SW1A 2AA'                  |'London'             |'ZI_EVENT'              |"VIRVEK"
 
 
 

@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>
+			<Version>0.11</Version>
+			<Authors>
+				<Author>Anthony Bateman (anthony.bateman@sofigate.com)</Author>
+				<Author>Joni Huoponen (joni.huoponen@almamedia.fi)</Author>
+			</Authors>
+			<Revision_Date>2/3/2020</Revision_Date>
+			<Changes>
+				<Change>3/2/2020 Added restrictions to several elements</Change>
+				<Change>2/3/2020 Passed validation check</Change>
+			</Changes>
+		</xs:documentation>
+	</xs:annotation>
+	<xs:element name="SalesOrder">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Header"/>
+				<xs:element ref="Item"/>
+				<xs:element ref="ItemText"/>
+				<xs:element ref="ItemFreeProduct"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Header">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="SenderSystem"/>
+				<xs:element name="SalesOrderType">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="4"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="PaymentTerms" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="4"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element ref="DocumentDate"/>
+				<xs:element name="InvoiceNumber">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="12"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element ref="InvoiceOVT" minOccurs="0"/>
+				<xs:element ref="YourReference" minOccurs="0"/>
+				<xs:element ref="OurReference" minOccurs="0">
+				</xs:element>
+				<xs:element ref="Currency" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Use ISO Standard currency values</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="ContractNumber" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Use fixed TextID fixed value 'Z002'</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="InvoiceReference" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Use fixed TextID fixed value 'Z001'</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="PartnerCustomer">
+					<xs:annotation>
+						<xs:documentation>Use fixed Role fixed value 'AG'</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="PartnerInterface">
+					<xs:annotation>
+						<xs:documentation>Use Role = 'ZI', Number = 'ZI_EVENT'</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="PartnerSalesPerson" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Use Role = 'VE'</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SenderSystem" type="xs:NCName"/>
+	<xs:element name="SalesOrderType" type="xs:NCName"/>
+	<xs:element name="PaymentTerms" type="xs:integer"/>
+	<xs:element name="DocumentDate" type="xs:integer"/>
+	<xs:element name="InvoiceNumber" type="xs:integer"/>
+	<xs:element name="InvoiceOVT" type="xs:integer"/>
+	<xs:element name="YourReference">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="35"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="OurReference">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="35"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Currency" type="xs:NCName"/>
+	<xs:element name="ContractNumber">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="TextID"/>
+				<xs:element ref="TextRow"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="InvoiceReference">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="TextID"/>
+				<xs:element ref="TextRow"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PartnerCustomer">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Role"/>
+				<xs:element ref="Number"/>
+				<xs:element ref="Name" minOccurs="0"/>
+				<xs:element ref="Name_2" minOccurs="0"/>
+				<xs:element ref="Name_3" minOccurs="0"/>
+				<xs:element ref="Name_4" minOccurs="0"/>
+				<xs:element ref="Street" minOccurs="0"/>
+				<xs:element ref="Country" minOccurs="0"/>
+				<xs:element ref="Postal_Code" minOccurs="0"/>
+				<xs:element ref="City" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PartnerInterface">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Role"/>
+				<xs:element ref="Number"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PartnerSalesPerson">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="Number"/>
+				<xs:element ref="Role"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Item">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="Description"/>
+				<xs:element ref="ItemCategory"/>
+				<xs:element ref="ItemNumber"/>
+				<xs:element ref="MaterialNumber"/>
+				<xs:element ref="OrderQuantity"/>
+				<xs:element ref="RowType"/>
+				<xs:element ref="Text"/>
+				<xs:element ref="ContractBeginDate"/>
+				<xs:element ref="ContractEndDate"/>
+				<xs:element ref="EndCustomer"/>
+				<xs:element ref="Prc_Group1" minOccurs="0"/>
+				<xs:element ref="Prc_Group3"/>
+				<xs:element ref="Price"/>
+				<xs:element ref="PricingCondition"/>
+				<xs:element ref="PricingConditionDiscount"/>
+				<xs:element ref="ProjectNumber"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ContractBeginDate" type="xs:integer"/>
+	<xs:element name="ContractEndDate" type="xs:integer"/>
+	<xs:element name="EndCustomer" type="xs:NCName"/>
+	<xs:element name="Prc_Group1">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value="^[a-zA-Z0-9]+$"/>
+				<xs:maxLength value="3"/>
+				<xs:enumeration value="001"/>
+				<xs:enumeration value="101"/>
+				<xs:enumeration value="102"/>
+				<xs:enumeration value="103"/>
+				<xs:enumeration value="104"/>
+				<xs:enumeration value="105"/>
+				<xs:enumeration value="106"/>
+				<xs:enumeration value="107"/>
+				<xs:enumeration value="108"/>
+				<xs:enumeration value="109"/>
+				<xs:enumeration value="110"/>
+				<xs:enumeration value="201"/>
+				<xs:enumeration value="202"/>
+				<xs:enumeration value="203"/>
+				<xs:enumeration value="204"/>
+				<xs:enumeration value="205"/>
+				<xs:enumeration value="206"/>
+				<xs:enumeration value="207"/>
+				<xs:enumeration value="208"/>
+				<xs:enumeration value="901"/>
+				<xs:enumeration value="902"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Prc_Group3">
+		<xs:complexType/>
+	</xs:element>
+	<xs:element name="Price">
+		<xs:complexType>
+			<xs:attribute name="sign" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PricingCondition">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ConditionType"/>
+				<xs:element ref="Value"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PricingConditionDiscount">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ConditionType"/>
+				<xs:element ref="Value"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ProjectNumber" type="xs:NCName"/>
+	<xs:element name="ItemText">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ItemNumber"/>
+				<xs:element ref="ItemCategory"/>
+				<xs:element ref="Description"/>
+				<xs:element ref="Text"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ItemFreeProduct">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ItemNumber"/>
+				<xs:element ref="ItemCategory"/>
+				<xs:element ref="MaterialNumber"/>
+				<xs:element ref="RowType"/>
+				<xs:element ref="OrderQuantity"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="TextID">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="Z001"/>
+				<xs:enumeration value="Z002"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="TextRow">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="132"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Role">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:length value="2" fixed="true"/>
+				<xs:enumeration value="AG"/>
+				<xs:enumeration value="ZI"/>
+				<xs:enumeration value="VE"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Number">
+		<xs:simpleType>
+			<xs:restriction base="xs:NMTOKEN">
+				<xs:maxLength value="10"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="ConditionType" type="xs:NCName"/>
+	<xs:element name="Value" type="xs:decimal"/>
+	<xs:element name="Description" type="xs:string"/>
+	<xs:element name="RowType">
+		<xs:simpleType>
+			<xs:restriction base="xs:integer">
+				<xs:enumeration value="0"/>
+				<xs:enumeration value="3"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Text">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="TextID"/>
+				<xs:element ref="ItemNumber"/>
+				<xs:element ref="TextRow"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="OrderQuantity" type="xs:int">
+	</xs:element>
+	<xs:element name="ItemCategory" type="xs:NCName"/>
+	<xs:element name="ItemNumber">
+		<xs:simpleType>
+			<xs:restriction base="xs:integer">
+				<xs:pattern value="^[0-9]*$"/>
+				<xs:maxInclusive value="999999"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="MaterialNumber">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:integer">
+					<xs:attribute name="type" use="required" type="xs:NCName"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Name">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Name_2">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Name_3">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Name_4">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Street">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Country">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Postal_Code">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="City">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>

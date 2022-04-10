@@ -12,6 +12,7 @@
 				<Change>3/2/2020 Added restrictions to several elements</Change>
 				<Change>2/3/2020 Passed validation check</Change>
 				<Change>20/3/2020 New fields added to PartnerCustomer: names, street and country details</Change>
+				<Change>1/4/2020 Changed xs:choice to xs:sequence in element 'Item'</Change>
 			</Changes>
 		</xs:documentation>
 	</xs:annotation>
@@ -19,9 +20,9 @@
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="Header"/>
-				<xs:element ref="Item"/>
-				<xs:element ref="ItemText"/>
-				<xs:element ref="ItemFreeProduct"/>
+				<xs:element ref="Item" maxOccurs="unbounded"/>
+				<xs:element ref="ItemText" maxOccurs="unbounded"/>
+				<xs:element ref="ItemFreeProduct" maxOccurs="unbounded"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
@@ -159,7 +160,7 @@
 	</xs:element>
 	<xs:element name="Item">
 		<xs:complexType mixed="true">
-			<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:sequence maxOccurs="1">
 				<xs:element ref="Description"/>
 				<xs:element ref="ItemCategory"/>
 				<xs:element ref="ItemNumber"/>
@@ -176,7 +177,7 @@
 				<xs:element ref="PricingCondition"/>
 				<xs:element ref="PricingConditionDiscount"/>
 				<xs:element ref="ProjectNumber"/>
-			</xs:choice>
+			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="ContractBeginDate" type="xs:integer"/>

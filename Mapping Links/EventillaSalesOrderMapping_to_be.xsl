@@ -151,6 +151,23 @@
 						</E1BPSDTEXT>
 					</xsl:for-each>
 
+					<xsl:for-each select="Item">
+							<xsl:if test="RowType = '0'">
+								<xsl:choose>
+									<xsl:when test="MaterialNumber/@type = 'External'">
+										<Z1ZALMABAPISDITM SEGMENT="1">
+											<ITM_NUMBER>
+												<xsl:value-of select="ItemNumber"/>
+											</ITM_NUMBER>
+											<MATERIAL>
+												<xsl:value-of select="MaterialNumber"/>
+											</MATERIAL>
+										</Z1ZALMABAPISDITM>
+									</xsl:when>
+								</xsl:choose>
+							</xsl:if>
+					</xsl:for-each>
+
 				</Z1ZALMA_SALESORDERCREATEFRO>
 			</IDOC>
 		</ZALMA_SALESORDERCREATEFROMD201>

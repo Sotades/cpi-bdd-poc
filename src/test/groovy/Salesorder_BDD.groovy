@@ -3,7 +3,7 @@ import spock.lang.Specification
 import spock.lang.Unroll
 
 
-class CPI_To_Be_Transform_Specification extends Specification {
+class Salesorder_BDD extends Specification {
 
     @Unroll
     def "Testing to-be CPI SalesOrder Transform"() {

@@ -1,0 +1,26 @@
+{
+    "GMT_AlmaCustomerMaster": {
+        "CustomerMaster": {
+            "InterfacePartner": "ZI_EVENT",
+            "Customer": "10016080",
+            "CustomerCode": "LV40203338523",
+            "Name1": "ZAB Ellex Klavins SIA",
+            "Name2": "Frank Zappa",
+            "Name3": "Frank Sinatra",
+            "Name4": "Frank N. Stein",
+            "Street": "Valdemara iela 62",
+            "Street2": "Has No Name",
+            "PostalCode": "LV101",
+            "City": "Riga",
+            "Country": "FI",
+            "Currency": "EUR",
+            "Language": "FI",
+            "Email": "Silvija.Romeiko@ellex.lv",
+            "OVTNumber": "1234",
+            "IntermediatorParty": "Unknown",
+            "PaymentTerms": "0210",
+            "TaxClassification": "1",
+            "IndustryKey": "02"
+        }
+    }
+}

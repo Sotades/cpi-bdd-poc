@@ -1,43 +1,32 @@
 {
     "SalesOrder": {
-        "Header":{
+        "Header": {
             "SalesOrderType": "ZED",
             "InvoiceNumber": "18969",
-            "PaymentTerms": "1",
+            "PaymentTerms": "",
             "YourReference": "71232",
             "OurReference": "71233",
             "Currency": "EUR",
             "ContractNumber": {
                 "TextID": "Z002",
-                "TextRow": "Onnistunutta remonttia!"
+                "TextRow": "Onnistunutta remonttia! Urakkamaailma.fi-palvelumaksu on 5,8% urakan arvonlis\u00e4verottomasta hinnasta ilman materiaalikustannuksia."
             },
             "PartnerCustomer": {
                 "Role": "AG",
-                "Number": "10016734",
-                "Name": "Fred Astaire",
-                "Name_2": "Fred Kruger",
-                "Name_3": "Fred Flintstone",
-                "Name_4": "Fred the Shred",
-                "Street": "10 Downing Street",
-                "Country": "United Kingdom",
-                "Postal_Code": "SW1A 2AA",
-                "City": "London"
-
+                "Number": "10016734"
             },
             "PartnerInterface": {
                 "Role": "ZI",
-                "Number": "ZI_EVENT"    
+                "Number": "ZI_EVENT"
             },
             "PartnerSalesPerson": {
                 "Role": "VE",
-                "Number": "VIRVEK"    
+                "Number": "VIRVEK"
             }
-            
-            
         },
         "Item": {
             "ItemNumber": "000010",
-            "Type": "Internal",
+            "Type": "External",
             "MaterialNumber": "1000",
             "RowType": "0",
             "OrderQuantity": "1",
@@ -50,13 +39,9 @@
                 "Value": 633.0000
             },
             "Text": {
-                "TextID": "Z010",
-                "TextRow": "ID: 131217, 02740, Espoo, Uusimaa, Finland: Vesimittarien vaihto, 27 kpl.* 2"
+                "TextID": "Z002",
+                "TextRow": "Onnistunutta remonttia! Urakkamaailma.fi-palvelumaksu on 5,8% urakan arvonlis\u00e4verottomasta hinnasta ilman materiaalikustannuksia."
             }
-            
-            
         }
-        
-            
     }
 }

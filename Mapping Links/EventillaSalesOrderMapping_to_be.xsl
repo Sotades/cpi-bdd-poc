@@ -16,9 +16,9 @@
 					<DIRECT>2</DIRECT>
 					<IDOCTYP>ZALMA_SALESORDERCREATEFROMD201</IDOCTYP>
 					<MESTYP>ZALMA_SALESORDERCREATEFROMD2</MESTYP>
-					<xsl:if test="normalize-space(Header/InvoiceNumber) != ''">
+					<xsl:if test="normalize-space(/root/SalesOrderHeader/InvoiceNumber) != ''">
 						<REFMES>
-							<xsl:value-of select="Header/InvoiceNumber"/>
+							<xsl:value-of select="/root/SalesOrderHeader/InvoiceNumber"/>
 						</REFMES>
 					</xsl:if>
 					<SNDPOR>
@@ -43,26 +43,26 @@
 				<Z1ZALMA_SALESORDERCREATEFRO SEGMENT="1">
 					<E1BPSDHD1 SEGMENT="1">
 						<DOC_TYPE>
-							<xsl:value-of select="SalesOrder/Header/SalesOrderType"/>
+							<xsl:value-of select="root/SalesOrder/Header/SalesOrderType"/>
 						</DOC_TYPE>
 						<REF_1>
-							<xsl:value-of select="SalesOrder/Header/InvoiceNumber"/>
+							<xsl:value-of select="root/SalesOrder/Header/InvoiceNumber"/>
 						</REF_1>
 						<PMNTTRMS>
-							<xsl:value-of select="SalesOrder/Header/PaymentTerms"/>
+							<xsl:value-of select="root/SalesOrder/Header/PaymentTerms"/>
 						</PMNTTRMS>
 						<PURCH_NO_C>
-							<xsl:value-of select="SalesOrder/Header/YourReference"/>
+							<xsl:value-of select="root/SalesOrder/Header/YourReference"/>
 						</PURCH_NO_C>
 						<PURCH_NO_S>
-							<xsl:value-of select="SalesOrder/Header/OurReference"/>
+							<xsl:value-of select="root/SalesOrder/Header/OurReference"/>
 						</PURCH_NO_S>
 						<CURR_ISO>
-							<xsl:value-of select="SalesOrder/Header/Currency"/>
+							<xsl:value-of select="root/SalesOrder/Header/Currency"/>
 						</CURR_ISO>
 					</E1BPSDHD1>
-					<xsl:for-each select="SalesOrder/Item">
-						<E1BPSDITM>
+					<xsl:for-each select="root/SalesOrder/Item">
+						<E1BPSDITM SEGMENT="1">
 							<ITM_NUMBER>
 								<xsl:value-of select="ItemNumber"/>
 							</ITM_NUMBER>
@@ -90,30 +90,30 @@
 					</xsl:for-each>
 					
 					<E1BPPARNR SEGMENT="1">
-						<PARTN_ROLE><xsl:value-of select="SalesOrder/Header/PartnerCustomer/Role"/></PARTN_ROLE>
-						<PARTN_NUMB><xsl:value-of select="SalesOrder/Header/PartnerCustomer/Number"/></PARTN_NUMB>
-						<NAME><xsl:value-of select="SalesOrder/Header/PartnerCustomer/Name"/></NAME>
-						<NAME_2><xsl:value-of select="SalesOrder/Header/PartnerCustomer/Name_2"/></NAME_2>
-						<NAME_3><xsl:value-of select="SalesOrder/Header/PartnerCustomer/Name_3"/></NAME_3>
-						<NAME_4><xsl:value-of select="SalesOrder/Header/PartnerCustomer/Name_4"/></NAME_4>
-						<STREET><xsl:value-of select="SalesOrder/Header/PartnerCustomer/Street"/></STREET>
-						<COUNTRY><xsl:value-of select="SalesOrder/Header/PartnerCustomer/Country"/></COUNTRY>
-						<POSTL_CODE><xsl:value-of select="SalesOrder/Header/PartnerCustomer/Postal_Code"/></POSTL_CODE>
-						<CITY><xsl:value-of select="SalesOrder/Header/PartnerCustomer/City"/></CITY>
+						<PARTN_ROLE><xsl:value-of select="root/SalesOrder/Header/PartnerCustomer/Role"/></PARTN_ROLE>
+						<PARTN_NUMB><xsl:value-of select="root/SalesOrder/Header/PartnerCustomer/Number"/></PARTN_NUMB>
+						<NAME><xsl:value-of select="root/SalesOrder/Header/PartnerCustomer/Name"/></NAME>
+						<NAME_2><xsl:value-of select="root/SalesOrder/Header/PartnerCustomer/Name_2"/></NAME_2>
+						<NAME_3><xsl:value-of select="root/SalesOrder/Header/PartnerCustomer/Name_3"/></NAME_3>
+						<NAME_4><xsl:value-of select="root/SalesOrder/Header/PartnerCustomer/Name_4"/></NAME_4>
+						<STREET><xsl:value-of select="root/SalesOrder/Header/PartnerCustomer/Street"/></STREET>
+						<COUNTRY><xsl:value-of select="root/SalesOrder/Header/PartnerCustomer/Country"/></COUNTRY>
+						<POSTL_CODE><xsl:value-of select="root/SalesOrder/Header/PartnerCustomer/Postal_Code"/></POSTL_CODE>
+						<CITY><xsl:value-of select="root/SalesOrder/Header/PartnerCustomer/City"/></CITY>
 					</E1BPPARNR>
 
 					<E1BPPARNR SEGMENT="1">
-						<PARTN_ROLE><xsl:value-of select="SalesOrder/Header/PartnerInterface/Role"/></PARTN_ROLE>
-						<PARTN_NUMB><xsl:value-of select="SalesOrder/Header/PartnerInterface/Number"/></PARTN_NUMB>
+						<PARTN_ROLE><xsl:value-of select="root/SalesOrder/Header/PartnerInterface/Role"/></PARTN_ROLE>
+						<PARTN_NUMB><xsl:value-of select="root/SalesOrder/Header/PartnerInterface/Number"/></PARTN_NUMB>
 					</E1BPPARNR>
 
 					<E1BPPARNR SEGMENT="1">
-						<PARTN_ROLE><xsl:value-of select="SalesOrder/Header/PartnerSalesPerson/Role"/></PARTN_ROLE>
-						<PARTN_NUMB><xsl:value-of select="SalesOrder/Header/PartnerSalesPerson/Number"/></PARTN_NUMB>
+						<PARTN_ROLE><xsl:value-of select="root/SalesOrder/Header/PartnerSalesPerson/Role"/></PARTN_ROLE>
+						<PARTN_NUMB><xsl:value-of select="root/SalesOrder/Header/PartnerSalesPerson/Number"/></PARTN_NUMB>
 					</E1BPPARNR>
 
 					<!--Schedule lines-->
-					<xsl:for-each select="SalesOrder/Item">
+					<xsl:for-each select="root/SalesOrder/Item">
 						<E1BPSCHDL SEGMENT="1">
 							<ITM_NUMBER><xsl:value-of select="ItemNumber"/></ITM_NUMBER>
 							<REQ_QTY><xsl:value-of select="OrderQuantity"/></REQ_QTY>
@@ -121,7 +121,7 @@
 					</xsl:for-each>
 
 					<!--Condition lines-->
-					<xsl:for-each select="SalesOrder/Item/PricingCondition">
+					<xsl:for-each select="root/SalesOrder/Item/PricingCondition">
 						<E1BPCOND SEGMENT="1">
 							<ITM_NUMBER><xsl:value-of select="../ItemNumber"/></ITM_NUMBER>
 							<COND_TYPE><xsl:value-of select="ConditionType"/></COND_TYPE>
@@ -133,16 +133,16 @@
 					<E1BPSDTEXT SEGMENT="1">
 						<ITM_NUMBER>000000</ITM_NUMBER>
 						<TEXT_ID>
-							<xsl:value-of select="SalesOrder/Header/ContractNumber/TextID"/>
+							<xsl:value-of select="root/SalesOrder/Header/ContractNumber/TextID"/>
 						</TEXT_ID>
 						<FORMAT_COL>*</FORMAT_COL>
 						<TEXT_LINE>
-							<xsl:value-of select="SalesOrder/Header/ContractNumber/TextRow"/>
+							<xsl:value-of select="root/SalesOrder/Header/ContractNumber/TextRow"/>
 						</TEXT_LINE>
 					</E1BPSDTEXT>
 
 					<!--Item Texts-->
-					<xsl:for-each select="SalesOrder/Item/Text">
+					<xsl:for-each select="root/SalesOrder/Item/Text">
 						<E1BPSDTEXT SEGMENT="1">
 							<ITM_NUMBER><xsl:value-of select="../ItemNumber"/></ITM_NUMBER>
 							<TEXT_ID><xsl:value-of select="TextID"/></TEXT_ID>
@@ -151,7 +151,7 @@
 						</E1BPSDTEXT>
 					</xsl:for-each>
 
-					<xsl:for-each select="Item">
+					<xsl:for-each select="root/SalesOrder/Item">
 							<xsl:if test="RowType = '0'">
 								<xsl:choose>
 									<xsl:when test="MaterialNumber/@type = 'External'">
@@ -176,9 +176,28 @@
 
 <metaInformation>
 	<scenarios>
-		<scenario default="yes" name="SalesOrderExample1" userelativepaths="yes" externalpreview="no" url="..\XML\SalesOrderExample1.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength=""
+		<scenario default="no" name="SalesOrderExample1" userelativepaths="yes" externalpreview="no" url="..\XML\SalesOrderExample1.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0" profiledepth="" profilelength=""
 		          urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no" validator="internal"
 		          customvalidator="">
+			<advancedProp name="bSchemaAware" value="true"/>
+			<advancedProp name="xsltVersion" value="2.0"/>
+			<advancedProp name="schemaCache" value="||"/>
+			<advancedProp name="iWhitespace" value="0"/>
+			<advancedProp name="bWarnings" value="true"/>
+			<advancedProp name="bXml11" value="false"/>
+			<advancedProp name="bUseDTD" value="false"/>
+			<advancedProp name="bXsltOneIsOkay" value="true"/>
+			<advancedProp name="bTinyTree" value="true"/>
+			<advancedProp name="bGenerateByteCode" value="true"/>
+			<advancedProp name="bExtensions" value="true"/>
+			<advancedProp name="iValidation" value="0"/>
+			<advancedProp name="iErrorHandling" value="fatal"/>
+			<advancedProp name="sInitialTemplate" value=""/>
+			<advancedProp name="sInitialMode" value=""/>
+		</scenario>
+		<scenario default="yes" name="Converted JSON file to XML" userelativepaths="yes" externalpreview="no" url="..\XML\XML after conversion from JSON.xml" htmlbaseurl="" outputurl="" processortype="saxon8" useresolver="yes" profilemode="0"
+		          profiledepth="" profilelength="" urlprofilexml="" commandline="" additionalpath="" additionalclasspath="" postprocessortype="none" postprocesscommandline="" postprocessadditionalpath="" postprocessgeneratedext="" validateoutput="no"
+		          validator="internal" customvalidator="">
 			<advancedProp name="bSchemaAware" value="true"/>
 			<advancedProp name="xsltVersion" value="2.0"/>
 			<advancedProp name="schemaCache" value="||"/>
